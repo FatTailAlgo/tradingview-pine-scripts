@@ -5,7 +5,7 @@
 
 # Pine Script Collection
 
-A modular, open-source collection of custom indicators, backtesting strategies, and exportable helper libraries written in **Pine Script** for TradingView by [@KevanoTrades](https://www.tradingview.com/u/KevanoTrades/). Licensed under MPL 2.0.
+A modular, open-source collection of custom indicators, backtesting strategies, and exportable helper libraries written in **Pine Script** for TradingView by [@FatTailAlgo](https://github.com/FatTailAlgo). Licensed under MPL 2.0.
 
 ---
 
@@ -54,8 +54,8 @@ tradingview-pine-scripts/
 To import a public library from `libraries/` into your own scripts, use the `/version` integer string assigned by TradingView. Library updates are backward-compatible because TradingView permanently freezes previous published versions:
 
 ```pinescript
-//@version=5
-import KevanoTrades/Double_Triple_EMA/1 as ema
+//@version=6
+import FatTailAlgo/Double_Triple_EMA/1 as ema
 
 // Call library function
 myDema = ema.dema(close, 14)
@@ -76,9 +76,9 @@ TradingView automatically parses these tags when you copy/paste the code into th
 
 ```pinescript
 // This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
-// © KevanoTrades
+// © FatTailAlgo
 
-//@version=5
+//@version=6
 
 // The 2 Pole and 3 Pole Super Smoother Filters were developed by John Ehlers and described in "Chapter 13: Super Smother" of his book "Cybernetic Analysis for Stocks and Futures".
 // The 2 Pole Smoother is described as being a better approximation of price, whereas the 3 Pole Smoother has superior smoothing.
@@ -109,6 +109,7 @@ Instead, tags are scoped to the **script name** and the **TradingView published 
 $$\text{Format: } \texttt{<prefix>-<script-name>-v<tradingview-version>}$$
 
 **Tagging Prefix Summary:**
+
 - `ind-`: Indicators
 - `str-`: Strategies
 - `lib-`: Libraries
@@ -152,8 +153,8 @@ git diff lib-ehlers_super_smoother-v1 lib-ehlers_super_smoother-v2 libraries/ehl
 
 This repository is licensed under the **Mozilla Public License 2.0 (MPL 2.0)**.
 
-* You are free to use, modify, and distribute these scripts.
-* Modifications to existing files must remain open-source under MPL 2.0.
-* Original author headers (`// © KevanoTrades`) must be preserved in all derived files.
+- You are free to use, modify, and distribute these scripts.
+- Modifications to existing files must remain open-source under MPL 2.0.
+- Original author headers (`// © FatTailAlgo`) must be preserved in all derived files.
 
 See the [LICENSE](https://www.google.com/search?q=./LICENSE) file for full details.
