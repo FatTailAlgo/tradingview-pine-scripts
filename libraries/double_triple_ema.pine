@@ -1,40 +1,41 @@
 // This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
-// © KevanoTrades
+// © FatTailAlgo
 
-//@version=5
+//@version=6
 
-// @description Provides the functions to calculate Double and Triple Exponentional Moving Averages (DEMA & TEMA).
-library("Double_Triple_EMA", true)
+// @description Provides the functions to calculate Double and Triple Exponential Moving Averages (DEMA & TEMA)
+library(title = 'Double_Triple_EMA', overlay = true)
 
-// @function Calculates Double Exponentional Moving Averages (DEMA)
+// @function Calculates Double Exponential Moving Averages (DEMA)
 // @param _source -> Open, Close, High, Low, etc ('close' is used if no argument is supplied)
 // @param _length -> DEMA length
 // @returns Double Exponential Moving Average (DEMA) of an input source at the specified input length
 export dema(float _source = close, simple int _length) =>
 
-	float e1 = ta.ema(_source, _length)
-    float e2 = ta.ema(e1, _length)
-    
-    float DEMA = (2 * e1) - e2
-    
-    DEMA
+    float ema1 = ta.ema(_source, _length)
+    float ema2 = ta.ema(ema1, _length)
+
+    float result = (2 * ema1) - ema2
+
+    result
 
 
-// @function Calculates Triple Exponentional Moving Averages (TEMA)
+// @function Calculates Triple Exponential Moving Averages (TEMA)
 // @param _source -> Open, Close, High, Low, etc ('close' is used if no argument is supplied)
 // @param _length -> TEMA length
 // @returns Triple Exponential Moving Average (TEMA) of an input source at the specified input length
 export tema(float _source = close, simple int _length) =>
-    
-    float e1 = ta.ema(_source, _length)
-    float e2 = ta.ema(e1, _length)
-    float e3 = ta.ema(e2, _length)
-    
-    float TEMA = (3 * e1) - (3 * e2) + e3
-    
-    TEMA
+
+    float ema1 = ta.ema(_source, _length)
+    float ema2 = ta.ema(ema1, _length)
+    float ema3 = ta.ema(ema2, _length)
+
+    float result = (3 * ema1) - (3 * ema2) + ema3
+
+    result
 
 
 // plot demo
-plot(dema(close, 100), title="Double Exponential Moving Average", color=color.yellow)
-plot(tema(close, 100), title="Triple Exponential Moving Average", color=color.aqua)
+plot(dema(close, 100), title = 'Double Exponential Moving Average', color = color.yellow)
+plot(tema(close, 100), title = 'Triple Exponential Moving Average', color = color.aqua)
+
